@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="model"
+            type="com.iktwo.sample.Person" />
+
+        <variable
+            name="handler"
+            type="com.iktwo.sample.PersonDelegateHandler" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="16sp"
+            android:text="@{model.firstName}"
+            android:onClick="@{() -> handler.onPersonSelected(model)}"/>
+
+    </FrameLayout>
+</layout>
