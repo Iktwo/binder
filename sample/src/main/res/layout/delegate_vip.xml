@@ -7,27 +7,39 @@
             name="model"
             type="com.iktwo.sample.Person" />
 
-        <variable
-            name="handler"
-            type="com.iktwo.sample.PersonDelegateHandler" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="--------"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/text_view_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+
             android:maxLines="1"
-            android:onClick="@{() -> handler.onPersonSelected(model)}"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="@{model.firstName}"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="--------"
             android:textSize="16sp" />
 
-    </FrameLayout>
+    </LinearLayout>
 </layout>
