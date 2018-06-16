@@ -1,7 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: "kotlin-android"
-apply plugin: "kotlin-android-extensions"
-apply plugin: "kotlin-kapt"
 
 android {
     compileSdkVersion 27
@@ -39,7 +36,6 @@ dependencies {
     })
 
     testImplementation 'junit:junit:4.12'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
