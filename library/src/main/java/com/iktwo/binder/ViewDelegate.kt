@@ -1,9 +1,9 @@
 package com.iktwo.binder
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 
-abstract class ViewDelegate<V : RecyclerView.ViewHolder> {
+abstract class ViewDelegate<V : androidx.recyclerview.widget.RecyclerView.ViewHolder> {
     abstract val itemViewType: Int
 
     abstract fun onCreateViewHolder(viewGroup: ViewGroup): V

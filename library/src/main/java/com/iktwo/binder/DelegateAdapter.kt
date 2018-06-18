@@ -1,14 +1,14 @@
 package com.iktwo.binder
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.util.SparseArray
 import android.view.ViewGroup
 
-abstract class DelegateAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val delegates = SparseArray<ViewDelegate<out RecyclerView.ViewHolder>>()
+abstract class DelegateAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
+    private val delegates = SparseArray<ViewDelegate<out androidx.recyclerview.widget.RecyclerView.ViewHolder>>()
 
-    fun <T : RecyclerView.ViewHolder> registerDelegate(delegate: ViewDelegate<T>) {
+    fun <T : androidx.recyclerview.widget.RecyclerView.ViewHolder> registerDelegate(delegate: ViewDelegate<T>) {
         val viewType = delegate.itemViewType
 
         if (delegates[viewType] != null) {
@@ -18,11 +18,11 @@ abstract class DelegateAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         delegates.put(viewType, delegate)
     }
 
-    internal fun getDelegateByViewHolder(viewHolder: RecyclerView.ViewHolder): ViewDelegate<RecyclerView.ViewHolder> {
-        return viewHolder.itemView.getTag(R.id.delegate) as ViewDelegate<RecyclerView.ViewHolder>
+    internal fun getDelegateByViewHolder(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder): ViewDelegate<androidx.recyclerview.widget.RecyclerView.ViewHolder> {
+        return viewHolder.itemView.getTag(R.id.delegate) as ViewDelegate<androidx.recyclerview.widget.RecyclerView.ViewHolder>
     }
 
-    internal fun getDelegateByPosition(position: Int): ViewDelegate<out RecyclerView.ViewHolder>? {
+    internal fun getDelegateByPosition(position: Int): ViewDelegate<out androidx.recyclerview.widget.RecyclerView.ViewHolder>? {
         val item = getItem(position)
 
         var i = 0
@@ -39,11 +39,11 @@ abstract class DelegateAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         return null
     }
 
-    internal fun getDelegateByViewType(viewType: Int): ViewDelegate<out RecyclerView.ViewHolder> {
+    internal fun getDelegateByViewType(viewType: Int): ViewDelegate<out androidx.recyclerview.widget.RecyclerView.ViewHolder> {
         return delegates.get(viewType)
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val delegate = getDelegateByViewType(viewType)
 
         val viewHolder = delegate.onCreateViewHolder(viewGroup)
@@ -52,7 +52,7 @@ abstract class DelegateAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         return viewHolder
     }
 
-    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         val delegate = getDelegateByViewHolder(viewHolder)
         val item = getItem(position)
 
